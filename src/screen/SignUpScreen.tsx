@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {useNavigation} from '@react-navigation/native';
 import {colors, fonts, screens} from '../constants';
+import GoBackButton from '../components/GoBackButton';
 
 const SignupScreen = () => {
   const navigation = useNavigation();
@@ -26,13 +27,7 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
-        <Ionicons
-          name={'arrow-back-outline'}
-          color={colors.primary}
-          size={25}
-        />
-      </TouchableOpacity>
+      <GoBackButton handleGoBack={handleGoBack} />
 
       <View style={styles.textContainer}>
         <Text style={styles.headingText}>Let's get</Text>
