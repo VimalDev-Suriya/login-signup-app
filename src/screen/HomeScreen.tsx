@@ -1,8 +1,15 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {colors, fonts} from '../constants';
+import {colors, fonts, screens} from '../constants';
+import {useNavigation} from '@react-navigation/native';
 
 const HomeScreen: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleLoginNavigation = screen => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.container}>
       <Image source={require('../assests/logo.png')} style={styles.logo} />
@@ -15,10 +22,14 @@ const HomeScreen: React.FC = () => {
       </Text>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.loginButtonWrapper}>
+        <TouchableOpacity
+          style={styles.loginButtonWrapper}
+          onPress={() => handleLoginNavigation(screens.Login)}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.signUpButtonWrapper}>
+        <TouchableOpacity
+          style={styles.signUpButtonWrapper}
+          onPress={() => handleLoginNavigation(screens.SignUp)}>
           <Text style={styles.signUpButtonText}>Sign-Up</Text>
         </TouchableOpacity>
       </View>
